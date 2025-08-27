@@ -244,3 +244,13 @@
 	page-break-before: always;
 	margin-top: 100px;
 }
+
+.profile-pic {
+  width: 210px;
+  height: 250px;
+  border-radius: 80%;
+  object-fit: cover;
+  display: block;
+}
+
+
