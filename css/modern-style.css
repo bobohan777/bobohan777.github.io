@@ -1001,3 +1001,174 @@ footer {
         padding: 1rem;
     }
 }
+
+/* --- Light Mode Support --- */
+body.light-mode {
+    --text-color: #1e293b;
+    --bg-color: #f3f4f6;
+    --card-bg: rgba(255, 255, 255, 0.85); /* Light card bg */
+    background: #f0f9ff; /* Very light blueish white */
+}
+
+body.light-mode .aurora, 
+body.light-mode .stars, 
+body.light-mode .twinkling,
+body.light-mode .falling-stars {
+    display: none; /* Hide space effects in light mode */
+}
+
+body.light-mode header, 
+body.light-mode section {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .section-title {
+    color: #0f172a;
+}
+
+body.light-mode .timeline-title {
+    color: #1e293b;
+}
+
+body.light-mode .timeline-date {
+    color: #64748b;
+}
+
+body.light-mode .responsibility-list {
+    color: #475569;
+}
+
+body.light-mode .skill-label {
+    color: #334155;
+}
+
+body.light-mode .skill-bar {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .tags span {
+    background: white;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+body.light-mode .tags span:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+body.light-mode .lang-badge,
+body.light-mode .badge-item,
+body.light-mode .project-card {
+    background: white;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+body.light-mode .project-desc {
+    color: #64748b;
+}
+
+body.light-mode .header-content h1 {
+    color: #0f172a;
+    text-shadow: none;
+}
+
+body.light-mode .contact-info {
+    color: #475569;
+}
+
+/* --- Navigation & Toggle --- */
+.main-nav {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 10;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease, color 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg) scale(1.1);
+    color: var(--primary-color);
+}
+
+/* Mobile Menu Button (Hidden by default) */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 20;
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden */
+        width: 70%;
+        height: 100vh;
+        background: var(--card-bg);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        z-index: 15;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+}
