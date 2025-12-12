@@ -1,6 +1,6 @@
 # Bo Bo Han - Cloud & System Engineer Portfolio
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=38BDF8&center=false&vCenter=true&width=500&lines=Cloud+Platform+Engineer;SRE+%26+System+Engineer;AWS+%26+Kubernetes+Expert;Automation+%26+DevOps+Enthusiast)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=38BDF8&center=false&vCenter=true&width=500&lines=Cloud+Platform+Engineer;SRE+%26+System+Engineer;AWS+Expert+%26+Kubernetes+Engineer;Automation+%26+DevOps+Enthusiast)](https://git.io/typing-svg)
 
 Welcome to my personal portfolio website! This project showcases my journey as a Cloud & System Engineer, featuring my skills, experience, projects, and certifications.
 
