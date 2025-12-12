@@ -1,17 +1,113 @@
 :root {
-    --primary-color: #D42426;
-    /* Christmas Red */
-    --secondary-color: #165B33;
-    /* Christmas Green */
+    --primary-color: #38bdf8;
+    /* Lighter blue for contrast against dark bg */
+    --secondary-color: #818cf8;
     --text-color: #f3f4f6;
-    --bg-color: #0f172a;
-    --card-bg: rgba(22, 91, 51, 0.3);
-    /* Greenish tint */
-    --accent-color: #F8B229;
-    /* Gold */
+    /* Light text for dark mode */
+    --bg-color: #1e293b;
+    --card-bg: rgba(30, 41, 59, 0.8);
+    /* Semi-transparent dark card */
+    --accent-color: #3b82f6;
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
 
-    --snow-shadows: 1852px 749px #FFF,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background: #000;
+    /* Fallback background */
+    background-attachment: fixed;
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Aurora Effect - Improved "Curtain" Look */
+.aurora {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    background: linear-gradient(to bottom, #020111 0%, #000000 100%);
+    overflow: hidden;
+}
+
+.aurora::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        repeating-linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 255, 150, 0.15) 10%,
+            rgba(150, 0, 255, 0.15) 20%,
+            transparent 30%);
+    background-size: 200% 100%;
+    filter: blur(20px);
+    animation: aurora-move 60s linear infinite alternate;
+    transform: rotate(20deg);
+}
+
+.aurora::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        repeating-linear-gradient(80deg,
+            transparent 0%,
+            rgba(0, 200, 255, 0.1) 15%,
+            rgba(255, 0, 200, 0.1) 25%,
+            transparent 40%);
+    background-size: 200% 100%;
+    filter: blur(30px);
+    animation: aurora-move 75s linear infinite alternate-reverse;
+    transform: rotate(-10deg);
+    mix-blend-mode: screen;
+}
+
+@keyframes aurora-move {
+    0% {
+        background-position: 0% 50%;
+        transform: rotate(10deg) scale(1);
+    }
+
+    100% {
+        background-position: 100% 50%;
+        transform: rotate(15deg) scale(1.1);
+    }
+}
+
+/* Stars Animation - Optimized */
+.stars,
+.twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+.stars {
+    background: transparent;
+    box-shadow:
+        1852px 749px #FFF,
         2427px 2308px #FFF,
         2471px 1289px #FFF,
         1931px 1618px #FFF,
@@ -411,119 +507,11 @@
         209px 1972px #FFF,
         1225px 1744px #FFF,
         1847px 1848px #FFF;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-main);
-    background: #000;
-    /* Fallback background */
-    background-attachment: fixed;
-    color: var(--text-color);
-    line-height: 1.6;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-}
-
-/* Aurora Effect - Improved "Curtain" Look */
-.aurora {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -3;
-    background: linear-gradient(to bottom, #020111 0%, #1a0b0b 100%);
-    overflow: hidden;
-}
-
-.aurora::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background:
-        repeating-linear-gradient(90deg,
-            transparent 0%,
-            rgba(0, 255, 150, 0.15) 10%,
-            rgba(150, 0, 255, 0.15) 20%,
-            transparent 30%);
-    background-size: 200% 100%;
-    filter: blur(20px);
-    animation: aurora-move 60s linear infinite alternate;
-    transform: rotate(20deg);
-}
-
-.aurora::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background:
-        repeating-linear-gradient(80deg,
-            transparent 0%,
-            rgba(0, 200, 255, 0.1) 15%,
-            rgba(255, 0, 200, 0.1) 25%,
-            transparent 40%);
-    background-size: 200% 100%;
-    filter: blur(30px);
-    animation: aurora-move 75s linear infinite alternate-reverse;
-    transform: rotate(-10deg);
-    mix-blend-mode: screen;
-}
-
-@keyframes aurora-move {
-    0% {
-        background-position: 0% 50%;
-        transform: rotate(10deg) scale(1);
-    }
-
-    100% {
-        background-position: 100% 50%;
-        transform: rotate(15deg) scale(1.1);
-    }
-}
-
-/* Stars Animation - Optimized */
-.stars,
-.twinkling {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    pointer-events: none;
-}
-
-.stars {
-    background: transparent;
-    box-shadow: var(--snow-shadows);
     animation: animStar 100s linear infinite;
     width: 2px;
     height: 2px;
     border-radius: 50%;
     z-index: -2;
-}
-
-.stars::after {
-    content: " ";
-    position: absolute;
-    top: -2000px;
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    box-shadow: var(--snow-shadows);
 }
 
 .twinkling {
@@ -679,7 +667,7 @@ body {
     }
 
     to {
-        transform: translateY(2000px);
+        transform: translateY(-2000px);
     }
 }
 
@@ -728,6 +716,8 @@ header {
     gap: 2rem;
     flex-wrap: wrap;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    /* For absolute positioning of toggle button */
 }
 
 .profile-img {
@@ -1011,5 +1001,270 @@ footer {
 
     .container {
         padding: 1rem;
+    }
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+body.light-mode .section-title {
+    color: #1e293b;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+body.light-mode section,
+body.light-mode header,
+body.light-mode .project-card,
+body.light-mode .contact-item {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .header-content h1 {
+    color: #0f172a;
+    text-shadow: none;
+}
+
+body.light-mode .contact-info,
+body.light-mode .timeline-date {
+    color: #475569;
+}
+
+body.light-mode .timeline-subtitle {
+    color: #4b5563;
+}
+
+body.light-mode .tech-category h4 {
+    color: #1e293b;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+body.light-mode .tags span {
+    background: rgba(59, 130, 246, 0.1);
+    color: #1d4ed8;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+body.light-mode .project-desc {
+    color: #4b5563;
+}
+
+body.light-mode .badge-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+}
+
+body.light-mode .aurora,
+body.light-mode .stars,
+body.light-mode .twinkling,
+body.light-mode .falling-stars {
+    display: none;
+}
+
+/* Theme Toggle Button */
+.theme-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+body.light-mode .theme-btn {
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    color: #f59e0b;
+    /* Sun color */
+}
+
+body.light-mode .theme-btn:hover {
+    background: #cbd5e1;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .theme-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        margin: 0;
+    }
+}
+
+/* UNIVERSAL LAYOUT FIXES */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+* {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+/* HACKER TERMINAL */
+#terminal-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 300px;
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #10b981;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: width 0.3s ease, height 0.3s ease, transform 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+#terminal-container.minimized {
+    height: 40px;
+    width: 200px;
+    cursor: pointer;
+}
+
+#terminal-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+#terminal-title {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#terminal-title::before {
+    content: '>_';
+    color: #10b981;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.t-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.t-min { background: #f59e0b; }
+.t-close { background: #ef4444; }
+
+#terminal-body {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+}
+
+#terminal-output {
+    margin-bottom: 8px;
+}
+
+.output-line {
+    margin-bottom: 4px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.cmd {
+    color: #fff;
+    font-weight: bold;
+}
+
+.prompt-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #3b82f6;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+#terminal-input {
+    background: transparent;
+    border: none;
+    color: #10b981;
+    font-family: inherit;
+    font-size: inherit;
+    flex: 1;
+    outline: none;
+    caret-color: #10b981;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    #terminal-container {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    #terminal-container.minimized {
+        width: 100%;
     }
 }

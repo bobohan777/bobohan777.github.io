@@ -49,6 +49,9 @@
                     </span>
                 </div>
             </div>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </header>
 
         <!-- About Me -->
@@ -334,6 +337,26 @@
             <p>&copy; 2025 Bo Bo Han. All rights reserved.</p>
         </footer>
     </div>
+    <!-- Hacker Terminal -->
+    <div id="terminal-container" class="minimized">
+        <div id="terminal-header">
+            <span id="terminal-title">Terminal</span>
+            <div class="terminal-controls">
+                <button id="terminal-toggle" class="t-btn t-min" title="Minimize/Expand"></button>
+                <button id="terminal-close" class="t-btn t-close" title="Close"></button>
+            </div>
+        </div>
+        <div id="terminal-body">
+            <div id="terminal-output"></div>
+            <div class="prompt-line">
+                <span class="prompt">guest@bobohan:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/terminal.js"></script>
 </body>
 
 </html>
