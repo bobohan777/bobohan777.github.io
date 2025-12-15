@@ -663,11 +663,11 @@ body {
 
 @keyframes animStar {
     from {
-        transform: translateY(0px);
+        transform: translateY(-2000px);
     }
 
     to {
-        transform: translateY(-2000px);
+        transform: translateY(0px);
     }
 }
 

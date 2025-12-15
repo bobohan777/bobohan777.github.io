@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         help: "Available commands: <br> - <span class='cmd'>whoami</span>: About Bo Bo Han<br> - <span class='cmd'>skills</span>: List technical skills<br> - <span class='cmd'>contact</span>: Contact information<br> - <span class='cmd'>socials</span>: Social media links<br> - <span class='cmd'>clear</span>: Clear terminal<br> - <span class='cmd'>date</span>: Show current date/time",
         whoami: "I am Bo Bo Han, a Cloud & System Engineer with 10+ years of experience in SRE, AWS, and Kubernetes. Currently building scalable platforms at Trivyst.",
         skills: "CORE: AWS, Kubernetes, Docker, Linux (RedHat/Ubuntu)<br>IaC: Terraform, Ansible<br>CI/CD: GitHub Actions, Jenkins<br>MONITORING: Prometheus, Grafana, CloudWatch",
-        contact: "Email: bobohan1989@gmail.com<br>Phone: (+66) 981-537-287",
+        contact: "Email: bobohan1989@gmail.com",
         socials: "<a href='https://www.linkedin.com/in/bbhan/' target='_blank'>LinkedIn</a> | <a href='https://github.com/bobohan777' target='_blank'>GitHub</a>",
         date: () => new Date().toLocaleString(),
         clear: () => {
